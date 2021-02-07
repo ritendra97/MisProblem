@@ -1,0 +1,28 @@
+//Stepping Number
+import java.util.*;
+public class Solution 
+{
+	public static boolean steppingNumber(int n)
+	{
+		int pre_no =-1;
+		while(n>0)
+		{
+			int curr_no = n%10;
+			if(pre_no!=-1)
+			{
+				if(Math.abs(curr_no-pre_no)>1)
+					return false;
+			}
+			n=n/10;
+			pre_no=curr_no;
+		}
+		return true;
+	}
+	public static void main(String[] args) 
+	{
+		System.out.print("Enter the number:\n");
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		System.out.println(steppingNumber(n));
+	}
+}
